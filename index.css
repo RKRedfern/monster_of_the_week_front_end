@@ -1,0 +1,21 @@
+body {
+    margin: 0;
+    font-family: "Courier New", monospace;
+}
+
+.card {
+    text-align: center;
+    border: black solid 1px;
+    padding: 1rem;
+    width: 15rem;
+    height: 25rem;
+    display: inline-grid;
+    margin: 1rem 2rem;
+}
+
+.monster-avatar {
+    justify-self: center;
+    height: 12rem;
+    width: auto;
+}
+
