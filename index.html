@@ -3,7 +3,7 @@
     <head>
         <meta charset="utf-8">
         <title>Monster Of The Week</title>
-        <script type="text/javascript" src="index.js"></script>
+        <script type="text/javascript" src="index.js" defer></script>
         <link rel="stylesheet" href="index.css">
     </head>
     <body>
@@ -11,6 +11,25 @@
         <div id="monster-card-container">
         </div>
 
+        <div id="user-card-container" hidden>
+        <button id="logout-button">Log Out</button>
+        </div>
+
+        <div id="create-user-container" hidden>
+
+            <form class="add-user-form" style="">
+            <h3>Get Your FBI Badge</h3>
+
+            <input type="text" name="name" value="" placeholder="Enter your name" class="input-text">
+            <br>
+            <input type="text" name="title" value="" placeholder="What is your title?" class="input-text">
+            <br>
+            <input type="text" name="image" value="" placeholder="Enter your avatar URL" class="input-text">
+            <br>
+            <input class="submit" type="submit" name="submit" value="Print My Badge" >
+            </form>
+
+        </div>
 
         
     </body>
