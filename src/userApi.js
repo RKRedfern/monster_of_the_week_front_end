@@ -14,4 +14,33 @@ class UserApi{
             })
         })
     }
+
+    createUser(){
+        const userInfo = {
+            user: {
+                name: nameInput.value,
+                title: titleInput.value,
+                image_url: imageInput.value
+            }
+        }
+
+        const configObj = {
+            method: 'POST',
+            headers: {
+                "Content-Type": "application/json",
+                Accept: "application/json"
+            },
+            body: JSON.stringify(userInfo)
+        }
+
+        fetch(this.baseUrl, configObj)
+        .then(r => r.json())
+        .then(json => {
+            debugger
+            const u = new User({id: json.data.id, ...json.data.attributes})
+            console.log(u)
+            u.attachUserToDom()
+        }
+    )}
+    
 }

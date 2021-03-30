@@ -8,9 +8,9 @@ class User{
         this.name = name 
         this.title = title
         this.image_url = image_url
- 
+
         this.element = document.createElement('card')
-        this.element.setAttribute('class', 'card')
+        //this.element.setAttribute('class', 'card')
         this.element.dataset["id"]= id
         this.element.id = `user-${id}`
 
@@ -18,19 +18,23 @@ class User{
     }
 
     render(){
-        this.element.innerHTML = `
-            <div data-id="${this.id}">
-                <strong class="name">${this.name}</strong>:
-                <span class="description">${this.title}</span>
-                <center class="image">${this.image_url}</center>
+        this.element.innerHTML = 
+        `
+            <div class="card mb-4 shadow-sm">
+            <div class="card-body">
+                <class="image" img-src>${this.image_url}</class=>
+                <h5 class="card-title">${this.name}</h5>
+                <p class="card-text">${this.title}</p>
+            </div>
             </div>
         `
         return this.element
     }
+    
 
     attachUserToDom(){
-        this.render()
         console.log(this)
+        this.render()
         User.container.append(this.element)
     }
 

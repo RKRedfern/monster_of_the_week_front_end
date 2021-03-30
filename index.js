@@ -3,6 +3,18 @@
 const port = 'http://localhost:3000/api/v1'
 const monsterApi = new MonsterApi(port)
 const userApi = new UserApi(port)
+const form = document.querySelector(".add-user-form")
+const nameInput = document.getElementById('user-name')
+const titleInput = document.getElementById('user-title')
+const imageInput = document.getElementById('user-image')
+
+form.addEventListener('submit', handleSubmit)
+
+function handleSubmit(e){
+    e.preventDefault()
+    userApi.createUser()
+    e.target.reset()
+}
 
 monsterApi.getMonsters()
 userApi.getUsers()
