@@ -14,6 +14,7 @@ class Monster{
         this.category_id = category_id
 
         this.element = document.createElement('card')
+        this.element.setAttribute('class', 'card')
         this.element.dataset["id"]= id
         this.element.id = `monster-${id}`
 
@@ -30,11 +31,10 @@ class Monster{
                 <button class="fav" data-id="${this.fav}">Favorite</button>
             </div>
         `
-        this.element.setAttribute('class', 'card')
         return this.element
     }
 
-    attachToDom(){
+    attachMonsterToDom(){
         this.render()
         console.log(this)
         Monster.container.append(this.element)

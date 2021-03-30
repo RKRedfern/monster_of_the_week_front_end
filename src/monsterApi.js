@@ -10,7 +10,7 @@ class MonsterApi{
         .then(json => {
             json["data"].forEach(element => {
                 const monster = new Monster({id: element.id, ...element.attributes})
-                monster.attachToDom()
+                monster.attachMonsterToDom()
             })
         })
     }

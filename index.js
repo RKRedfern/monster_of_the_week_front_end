@@ -2,8 +2,10 @@
 
 const port = 'http://localhost:3000/api/v1'
 const monsterApi = new MonsterApi(port)
+const userApi = new UserApi(port)
 
 monsterApi.getMonsters()
+userApi.getUsers()
 
 //Monster Render Code
 
