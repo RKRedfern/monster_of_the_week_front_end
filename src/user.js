@@ -33,7 +33,7 @@ class User{
     
 
     attachUserToDom(){
-        console.log(this)
+        // console.log(this)
         this.render()
         User.container.append(this.element)
     }

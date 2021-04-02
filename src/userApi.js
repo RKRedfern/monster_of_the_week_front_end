@@ -44,3 +44,11 @@ class UserApi{
     )}
     
 }
+
+// 3/30/2021 
+// figure out why photos aren't coming over from DB (CORB?) - asked slack 11a
+// login functionality - 'hold' user data to render it along side monsters
+// homepage structure grid 
+// logout button and toggle implemented again 
+// favorite icon and patch 
+
