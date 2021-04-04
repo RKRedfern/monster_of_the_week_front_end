@@ -24,9 +24,23 @@ body {
     
 }
 
+.card input {
+    content: "⬜️";
+}
+
+.card input.checked {
+    content: "🌮";
+}
+
 .monster-avatar {
     justify-self: center;
-    height: 12rem;
+    height: 100px;
+    width: auto;
+}
+
+.user-avatar {
+    justify-self: center;
+    height: 100px;
     width: auto;
 }
 

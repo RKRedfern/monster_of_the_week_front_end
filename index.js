@@ -8,7 +8,8 @@ const form = document.querySelector(".add-user-form")
 const nameInput = document.getElementById('user-name')
 const titleInput = document.getElementById('user-title')
 const imageInput = document.getElementById('user-image')
-
+const logoutButton = document.querySelector("#logout-button")
+const showHomePage = true;
 
 form.addEventListener('submit', handleSubmit)
 
@@ -18,12 +19,25 @@ function handleSubmit(e){
     e.preventDefault()
     userApi.createUser()
     e.target.reset()
+    toggleLandingView()
 }
-
 
 
 monsterApi.getMonsters()
 userApi.getUsers()
+
+// DOM toggle 
+
+
+logoutButton.addEventListener('click', e => {
+    toggleLandingView(true)
+})
+
+function toggleLandingView(showHomePage) {
+    document.getElementById("create-user-container").hidden = !showHomePage;
+    document.getElementById("monster-card-container").hidden = showHomePage;
+    document.getElementById("user-card-container").hidden = showHomePage;
+}
 
 
 //Monster Render Code
@@ -120,26 +134,6 @@ userApi.getUsers()
 //     .then(new_user => console.log(new_user))
 // }
 
-//DOM toggle 
 
-// const userSubmit = document.querySelector(".add-user-form")
-// const logoutButton = document.querySelector("#logout-button")
-
-// userSubmit.addEventListener('submit', e => {
-//     console.log()
-//     e.preventDefault()
-//     toggleLandingView()
-//     postUser(e.target)
-// })
-
-// logoutButton.addEventListener('click', e => {
-//     toggleLandingView(true)
-// })
-
-// function toggleLandingView(showHomePage) {
-//     document.getElementById("create-user-container").hidden = showHomePage;
-//     document.getElementById("monster-card-container").hidden = showHomePage;
-//     document.getElementById("user-card-container").hidden = showHomePage;
-// }
 
 

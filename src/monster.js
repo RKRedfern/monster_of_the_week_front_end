@@ -31,7 +31,7 @@ class Monster{
         name.innerText = this.name
         
         const desc = document.createElement('p')
-        desc.innerText = this.description
+        desc.innerHTML = this.description
 
         const img = document.createElement('img')
         img.innerText = this.img_url
@@ -50,17 +50,27 @@ class Monster{
         monsterCard.append(id, name, desc, img, rarity, cat, checkBox)
 
         Monster.container.append(monsterCard)
-        monsterCard.addEventListener('change', this.toggle)
+        monsterCard.addEventListener('change', this.favorite)
     }
 
     attachMonsterToDom(){
         this.render()
     }
 
-    toggle = (e) => {
+    toggle = () => {
+        if (this.fav === true){ 
+            console.log("Yes")
+        } else {
+            console.log("No")
+        }
+    }
+
+    favorite = (e) => {
+        e.preventDefault()
         const id = e.target.id
-        const boolean = e.target.checked
-        const likeObj = {id, boolean}
-        console.log(likeObj)
+        const liked = e.target.checked
+        this.toggle()
+        //monsterApi.favoritePatch(id, liked)
+        
     }
 }
