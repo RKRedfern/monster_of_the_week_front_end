@@ -1,6 +1,6 @@
 class Monster{
 
-    //static all = []
+    static all = []
     static container = document.querySelector('#monster-folder')
     
     constructor({id, name, description, image_url, rarity, fav, user_id, category_id, category_name}){
@@ -15,7 +15,7 @@ class Monster{
         this.category_id = category_id
         this.element = document.createElement('card')
 
-        //Monster.all.push(this)
+        Monster.all.push(this)
     }
 
     render(){
@@ -24,30 +24,39 @@ class Monster{
         monsterCard.className = "monster-card"
         monsterCard.setAttribute('class', 'card')
 
-        const id = document.createElement('h3')
+        const id = document.createElement('div')
+        id.setAttribute('id', 'id')
         id.innerText = this.id
         
-        const name = document.createElement('h3')
+        const name = document.createElement('div')
+        name.setAttribute('id', 'name')
         name.innerText = this.name
         
-        const desc = document.createElement('p')
+        const desc = document.createElement('div')
+        desc.setAttribute('id', 'desc')
         desc.innerHTML = this.description
 
         const img = document.createElement('img')
-        img.innerText = this.img_url
+        img.setAttribute('id', 'img')
+        img.setAttribute('class', 'img')
+        //img.setAttribute('class', 'img')
+        img.src = this.image_url
 
-        const rarity = document.createElement('h3')
+        const rarity = document.createElement('div')
+        rarity.setAttribute('id', 'rarity')
         rarity.innerText = this.rarity
 
-        const cat = document.createElement('h4')
+        const cat = document.createElement('div')
+        cat.setAttribute('id', 'cat')
         cat.innerText = this.category_name
 
         const checkBox = document.createElement('input')
+        checkBox.setAttribute('id', 'fav')
         checkBox.type = 'checkbox'
         checkBox.id = this.id
         checkBox.checked = this.fav
 
-        monsterCard.append(id, name, desc, img, rarity, cat, checkBox)
+        monsterCard.append(id, name, img, desc, rarity, cat, checkBox)
 
         Monster.container.append(monsterCard)
         monsterCard.addEventListener('change', this.favorite)

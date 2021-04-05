@@ -39,10 +39,10 @@ class UserApi{
                 
                 const user = new User({id: json.data.id, ...json.data.attributes})
 
-                user.attachUserToDom()
+                
                 let userId = user.id
                 console.log(userId)
-                
+                user.attachUserToDom()
                 monsterApi.getUsersMonsters(userId)
             }
         )}

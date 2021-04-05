@@ -1,6 +1,6 @@
 class User{
 
-    static all = []
+    //static all = []
     static container = document.querySelector('#user-card-container')
 
     constructor({id, name, title, image_url}){
@@ -14,7 +14,7 @@ class User{
         this.element.dataset["id"]= id
         this.element.id = `user-${id}`
 
-        User.all.push(this)
+        //User.all.push(this)
     }
 
     render(){
@@ -40,7 +40,7 @@ class User{
     
 
     attachUserToDom(){
-        // console.log(this)
+        console.log(this)
         this.render()
         User.container.append(this.element)
         //This line will change to pop the user onto their landing page

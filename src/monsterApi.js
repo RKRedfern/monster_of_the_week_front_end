@@ -4,17 +4,18 @@ class MonsterApi{
         this.baseUrl = `${port}/monsters`
     }
 
-    // getMonsters(){
-    //     fetch(this.baseUrl)
-    //     .then(r => r.json())
-    //     .then(json => {
-    //         // sort here
-    //         json["data"].forEach(element => {
-    //             const monster = new Monster({id: element.id, ...element.attributes})
-    //             monster.attachMonsterToDom()
-    //         })
-    //     })
-    // }
+    getMonsters(){
+        fetch('http://localhost:3000/api/v1/monsters/show')
+        .then(r => r.json())
+        .then(json => {
+            // sort here
+            
+            json.data.forEach(element => {
+                const monster = new Monster({id: element.id, ...element.attributes})
+                monster.attachMonsterToDom()
+            })
+        })
+    }
 
     favoritePatch(id, liked){
 
@@ -44,5 +45,5 @@ class MonsterApi{
 }
 
 // optimisticly render/change the icon displayed on the card on click 
-// route to all users monsters 
+
 
