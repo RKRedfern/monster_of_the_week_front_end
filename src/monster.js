@@ -1,6 +1,6 @@
 class Monster{
 
-    static all = []
+    //static all = []
     static container = document.querySelector('#monster-folder')
     
     constructor({id, name, description, image_url, rarity, fav, user_id, category_id, category_name}){
@@ -15,7 +15,7 @@ class Monster{
         this.category_id = category_id
         this.element = document.createElement('card')
 
-        Monster.all.push(this)
+        //Monster.all.push(this)
     }
 
     render(){
@@ -57,8 +57,9 @@ class Monster{
         this.render()
     }
 
-    toggle = () => {
-        if (this.fav === true){ 
+    toggle = (e) => {
+        console.log(e.target.checked)
+        if (e.target.checked === true){ 
             console.log("Yes")
         } else {
             console.log("No")
@@ -69,8 +70,8 @@ class Monster{
         e.preventDefault()
         const id = e.target.id
         const liked = e.target.checked
-        this.toggle()
-        //monsterApi.favoritePatch(id, liked)
+        this.toggle(e)
+        monsterApi.favoritePatch(id, liked)
         
     }
 }

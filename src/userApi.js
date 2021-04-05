@@ -36,12 +36,16 @@ class UserApi{
         fetch(this.baseUrl, configObj)
         .then(r => r.json())
         .then(json => {
-            debugger
-            const u = new User({id: json.data.id, ...json.data.attributes})
-            
-        }
-    )}
-    
+                
+                const user = new User({id: json.data.id, ...json.data.attributes})
+
+                user.attachUserToDom()
+                let userId = user.id
+                console.log(userId)
+                
+                monsterApi.getUsersMonsters(userId)
+            }
+        )}
 }
 
 // 3/30/2021 

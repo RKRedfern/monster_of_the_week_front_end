@@ -4,16 +4,17 @@ class MonsterApi{
         this.baseUrl = `${port}/monsters`
     }
 
-    getMonsters(){
-        fetch(this.baseUrl)
-        .then(r => r.json())
-        .then(json => {
-            json["data"].forEach(element => {
-                const monster = new Monster({id: element.id, ...element.attributes})
-                monster.attachMonsterToDom()
-            })
-        })
-    }
+    // getMonsters(){
+    //     fetch(this.baseUrl)
+    //     .then(r => r.json())
+    //     .then(json => {
+    //         // sort here
+    //         json["data"].forEach(element => {
+    //             const monster = new Monster({id: element.id, ...element.attributes})
+    //             monster.attachMonsterToDom()
+    //         })
+    //     })
+    // }
 
     favoritePatch(id, liked){
 
@@ -26,11 +27,22 @@ class MonsterApi{
             body: JSON.stringify(liked)
         })
         .then(res => res.json())
-        .then(data => console.log(data))
-        
+
+    }
+
+    getUsersMonsters(userId){
+        fetch(`http://localhost:3000/api/v1/users/${userId}/monsters`)
+        .then(r => r.json())
+        .then(json => {
+            json["data"].forEach(element => {
+                const monster = new Monster({id: element.id, ...element.attributes})
+                monster.attachMonsterToDom()
+            })
+        })
     }
 
 }
-// when the favorite button is clicked on a monster card 
-// send a patch request to the API that toggles the boolean value of the 'favorite' attribute 
+
 // optimisticly render/change the icon displayed on the card on click 
+// route to all users monsters 
+
