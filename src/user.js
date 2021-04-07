@@ -1,7 +1,8 @@
 class User{
 
     static all = []
-    static container = document.querySelector('#user-card-container')
+    static userContainer = document.querySelector('#user-card-container')
+    static agentContainer = document.querySelector("#select-agent-container")
 
     constructor({id, name, title, image_url}){
         this.id = id
@@ -10,6 +11,7 @@ class User{
         this.image_url = image_url
 
         this.element = document.createElement('card')
+        //this.element.setAttribute('class', 'card')
         this.element.dataset["id"]= id
         this.element.id = `user-${id}`
 
@@ -34,21 +36,30 @@ class User{
         title.innerText = this.title
 
         const img = document.createElement('img')
-        img.setAttribute('id', 'user-img')
+        img.setAttribute('id', 'user-avatar')
         img.setAttribute('class', 'img')
         img.src = this.image_url
 
         userCard.append(id, img, name)
     }
-    
 
     attachUserToDom(){
         this.render()
-        User.container.append(this.element)
+        User.userContainer.append(this.element)
     }
 
-    //function to filter seed agents from user created ones
+    
+    attachAgentToDom(){
+        this.render()
+        this.element.addEventListener('click', this.handleAgentSelect)
+        User.agentContainer.append(this.element)
+    }
 
-
+    handleAgentSelect(){
+        let userId = this.dataset.id
+        monsterApi.getUsersMonsters(userId)
+        toggleLandingView()
+        User.userContainer.append(this)
+    }
 
 }

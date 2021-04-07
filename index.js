@@ -4,6 +4,7 @@ const port = 'http://localhost:3000/api/v1'
 const monsterApi = new MonsterApi(port)
 const userApi = new UserApi(port)
 
+
 const form = document.querySelector(".add-user-form")
 const nameInput = document.getElementById('user-name')
 const titleInput = document.getElementById('user-title')
@@ -22,8 +23,9 @@ function handleSubmit(e){
 }
 
 
-//userApi.getUsers()
-//monsterApi.getUsersMonsters()
+userApi.getUsers()
+// monsterApi.getUsersMonsters()
+monsterApi.getMonsters()
 
 
 
@@ -36,8 +38,10 @@ function handleSubmit(e){
 // })
 
 logoutButton.addEventListener('click', e => {
+    e.preventDefault()
     toggleLandingView(true)
-    
+    let monsterContainer = document.getElementById("monster-card-container") 
+    let userContainer = document.getElementById("user-card-container") 
 })
 
 function toggleLandingView(showHomePage) {
@@ -45,7 +49,5 @@ function toggleLandingView(showHomePage) {
     document.getElementById("monster-card-container").hidden = showHomePage;
     document.getElementById("user-card-container").hidden = showHomePage;
 }
-
-
 
 

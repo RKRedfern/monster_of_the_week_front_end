@@ -4,16 +4,21 @@ class UserApi{
         this.baseUrl = `${port}/users`
     }
 
-    // getUsers(){
-    //     fetch(this.baseUrl)
-    //     .then(r => r.json())
-    //     .then(json => {
-    //         json["data"].forEach(element => {
-    //             const user = new User({id: element.id, ...element.attributes})
-    //             user.attachUserToDom()
-    //         })
-    //     })
-    // }
+    getUsers(){
+        fetch(this.baseUrl)
+        .then(r => r.json())
+        .then(json => {
+            json['data'].forEach(element => {
+                if (element.id < 5) {
+                    const agentArray = new User({id: element.id, ...element.attributes})
+                    agentArray.attachAgentToDom()
+                } else {
+                    const userArray = new User({id: element.id, ...element.attributes})
+                    //userArray.attachUserToDom()
+                }
+            })
+        })
+    }
 
     createUser(){
         const userInfo = {
@@ -36,14 +41,11 @@ class UserApi{
         fetch(this.baseUrl, configObj)
         .then(r => r.json())
         .then(json => {
-                
-                const user = new User({id: json.data.id, ...json.data.attributes})
-
-                
+                const newUser = new User({id: json.data.id, ...json.data.attributes})
                 let userId = user.id
                 console.log(userId)
                 user.attachUserToDom()
-                monsterApi.getUsersMonsters(userId)
+                monsterApi.getUsersMonsters()
             }
         )}
 }

@@ -36,11 +36,10 @@ class Monster{
         desc.setAttribute('id', 'desc')
         desc.innerHTML = this.description
 
-        const img = document.createElement('img')
-        img.setAttribute('id', 'img')
-        img.setAttribute('class', 'img')
-        //img.setAttribute('class', 'img')
-        img.src = this.image_url
+        const mImage = document.createElement('img')
+        mImage.setAttribute('id', 'img')
+        mImage.setAttribute('class', 'img')
+        mImage.src = this.image_url
 
         const rarity = document.createElement('div')
         rarity.setAttribute('id', 'rarity')
@@ -50,16 +49,20 @@ class Monster{
         cat.setAttribute('id', 'cat')
         cat.innerText = this.category_name
 
-        const checkBox = document.createElement('input')
-        checkBox.setAttribute('id', 'fav')
-        checkBox.type = 'checkbox'
-        checkBox.id = this.id
-        checkBox.checked = this.fav
+        const favBtn = document.createElement('input')
+        favBtn.setAttribute('id', 'fav-btn')
+        favBtn.type = 'button'
+        favBtn.id = this.id
+        favBtn.checked = this.fav
+        favBtn.addEventListener('click', this.favorite)
 
-        monsterCard.append(id, name, img, desc, rarity, cat, checkBox)
+        monsterCard.append(name, id, desc, cat, rarity)
+        
+        
+        
 
         Monster.container.append(monsterCard)
-        monsterCard.addEventListener('change', this.favorite)
+        
     }
 
     attachMonsterToDom(){
