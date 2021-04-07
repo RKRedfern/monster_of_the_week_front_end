@@ -10,26 +10,31 @@
     <body>
 
 
-        <div id="create-user-container" hidden>
+        <div id="create-user-container" >
+            <h2> Welcome to the FBI's most Unwanted, enter your details to get issued a Badge </h2>
+            <div id="create-user-form" >
+                <form class="add-user-form" style="">
+                
 
-            
-            <form class="add-user-form" style="">
-            
-
-            <input type="text" name="name" value="" placeholder="Enter your name" id="user-name">
-            <br>
-            <input type="text" name="title" value="" placeholder="What is your title?" id="user-title">
-            <br>
-            <input type="text" name="image" value="" placeholder="Enter your avatar URL" id="user-image">
-            <br>
-            <input class="submit" type="submit" name="submit" value="Print My Badge" >
-            </form>
+                <input type="text" name="name" value="" placeholder="Enter your name" id="user-name">
+                <br>
+                <input type="text" name="title" value="" placeholder="What is your title?" id="user-title">
+                <br>
+                <input type="text" name="image" value="" placeholder="Enter your avatar URL" id="user-image">
+                <br>
+                <input class="submit" type="submit" name="submit" value="Print My Badge" >
+                </form>
 
 
+            </div>
+            <div id ="select-agent-container">
+                <h2> ...Or Sign in as an Existing Agent </h2>
+
+            </div>
 
         </div>
 
-        <div id="monster-card-container" class="monster card-container" >
+        <div id="monster-card-container" class="monster card-container" hidden>
 
             <div id="monster-folder" class="monster-folder">
 
@@ -41,7 +46,7 @@
         <div id="user-card-container" hidden> 
 
         <button id="logout-button">Log Out</button>
-        <button id="all-monsters-button">See All Monsters</button>
+        
         </div>
 
     <script type="text/javascript" src="src/monster.js" defer></script>

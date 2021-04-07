@@ -9,7 +9,7 @@ const nameInput = document.getElementById('user-name')
 const titleInput = document.getElementById('user-title')
 const imageInput = document.getElementById('user-image')
 const logoutButton = document.querySelector("#logout-button")
-const allMonstersButton = document.querySelector("#all-monsters-button")
+//const allMonstersButton = document.querySelector("#all-monsters-button")
 const showHomePage = true;
 
 form.addEventListener('submit', handleSubmit)
@@ -21,20 +21,23 @@ function handleSubmit(e){
     toggleLandingView()
 }
 
-monsterApi.getMonsters()
+
 //userApi.getUsers()
 //monsterApi.getUsersMonsters()
 
 
 
 
-// DOM toggle 
-//allMonstersButton.addEventListener('click', e =>{
-//
-//})
+//DOM toggle 
+
+// allMonstersButton.addEventListener('click', e =>{
+//     e.preventDefault()
+//     monsterApi.getMonsters()
+// })
 
 logoutButton.addEventListener('click', e => {
     toggleLandingView(true)
+    
 })
 
 function toggleLandingView(showHomePage) {

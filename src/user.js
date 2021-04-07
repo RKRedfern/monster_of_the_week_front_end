@@ -1,6 +1,6 @@
 class User{
 
-    //static all = []
+    static all = []
     static container = document.querySelector('#user-card-container')
 
     constructor({id, name, title, image_url}){
@@ -10,43 +10,45 @@ class User{
         this.image_url = image_url
 
         this.element = document.createElement('card')
-        //this.element.setAttribute('class', 'card')
         this.element.dataset["id"]= id
         this.element.id = `user-${id}`
 
-        //User.all.push(this)
+        User.all.push(this)
     }
 
     render(){
         const userCard = this.element
         userCard.className = "user-card"
-        userCard.setAttribute('class', 'card')
+        userCard.setAttribute('class', 'user-card')
 
-        const id = document.createElement('h3')
+        const id = document.createElement('div')
+        id.setAttribute('id', 'user-id')
         id.innerText = this.id
         
-        const name = document.createElement('h3')
+        const name = document.createElement('div')
+        name.setAttribute('id', 'user-name')
         name.innerText = this.name
         
-        const title = document.createElement('p')
+        const title = document.createElement('div')
+        title.setAttribute('id', 'title')
         title.innerText = this.title
 
         const img = document.createElement('img')
-        img.setAttribute('class', 'user-avatar')
+        img.setAttribute('id', 'user-img')
+        img.setAttribute('class', 'img')
         img.src = this.image_url
 
-        userCard.append(id, name, title, img)
+        userCard.append(id, img, name)
     }
     
 
     attachUserToDom(){
-        console.log(this)
         this.render()
         User.container.append(this.element)
-        //This line will change to pop the user onto their landing page
     }
 
-    
+    //function to filter seed agents from user created ones
+
 
 
 }

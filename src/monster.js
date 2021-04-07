@@ -22,7 +22,7 @@ class Monster{
 
         const monsterCard = this.element
         monsterCard.className = "monster-card"
-        monsterCard.setAttribute('class', 'card')
+        monsterCard.setAttribute('class', 'monster-card')
 
         const id = document.createElement('div')
         id.setAttribute('id', 'id')
