@@ -16,6 +16,7 @@ class UserApi{
                     const userArray = new User({id: element.id, ...element.attributes})
                     //userArray.attachUserToDom()
                 }
+                //this function separates agents from new users - userArray can be used if there is ever a 'see all users' option.
             })
         })
     }
@@ -42,18 +43,9 @@ class UserApi{
         .then(r => r.json())
         .then(json => {
                 const newUser = new User({id: json.data.id, ...json.data.attributes})
-                let userId = user.id
-                console.log(userId)
-                user.attachUserToDom()
-                monsterApi.getUsersMonsters()
+                let userId = newUser.id
+                newUser.attachUserToDom()
+                monsterApi.getUsersMonsters(userId)
             }
         )}
 }
-
-// 3/30/2021 
-
-// login functionality - 'hold' user data to render it along side monsters
-// homepage structure grid 
-// logout button and toggle implemented again 
-// favorite icon 
-

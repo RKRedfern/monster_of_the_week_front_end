@@ -8,8 +8,6 @@ class MonsterApi{
         fetch('http://localhost:3000/api/v1/monsters/show')
         .then(r => r.json())
         .then(json => {
-            // sort here
-            
             json.data.forEach(element => {
                 const monster = new Monster({id: element.id, ...element.attributes})
                 monster.attachMonsterToDom()
@@ -31,19 +29,16 @@ class MonsterApi{
 
     }
 
-    getUsersMonsters(userId){
-        fetch(`http://localhost:3000/api/v1/users/${userId}/monsters`)
+    getUsersMonsters(id){
+        fetch(`http://localhost:3000/api/v1/users/${id}/monsters`)
         .then(r => r.json())
         .then(json => {
             json["data"].forEach(element => {
                 const monster = new Monster({id: element.id, ...element.attributes})
                 monster.attachMonsterToDom()
+                
             })
         })
     }
 
 }
-
-// optimisticly render/change the icon displayed on the card on click 
-
-

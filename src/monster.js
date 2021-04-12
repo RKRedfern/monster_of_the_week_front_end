@@ -23,7 +23,7 @@ class Monster{
         const monsterCard = this.element
         monsterCard.className = "monster-card"
         monsterCard.setAttribute('class', 'monster-card')
-
+        
         const id = document.createElement('div')
         id.setAttribute('id', 'id')
         id.innerText = this.id
@@ -36,10 +36,10 @@ class Monster{
         desc.setAttribute('id', 'desc')
         desc.innerHTML = this.description
 
-        const mImage = document.createElement('img')
-        mImage.setAttribute('id', 'img')
-        mImage.setAttribute('class', 'img')
-        mImage.src = this.image_url
+        // const mImage = document.createElement('img')
+        // mImage.setAttribute('id', 'img')
+        // mImage.setAttribute('class', 'img')
+        // mImage.src = this.image_url
 
         const rarity = document.createElement('div')
         rarity.setAttribute('id', 'rarity')
@@ -58,9 +58,6 @@ class Monster{
 
         monsterCard.append(name, id, desc, cat, rarity)
         
-        
-        
-
         Monster.container.append(monsterCard)
         
     }
@@ -68,6 +65,8 @@ class Monster{
     attachMonsterToDom(){
         this.render()
     }
+
+    // someday create a function to change what the button looks like on click?
 
     toggle = (e) => {
         console.log(e.target.checked)
@@ -84,6 +83,13 @@ class Monster{
         const liked = e.target.checked
         this.toggle(e)
         monsterApi.favoritePatch(id, liked)
-        
+        //toggle called here when finished
     }
+
+    // I just want them to sparkle 
+
+    monsterCardSparkle(monsterArray){
+        console.log(monsterArray)
+    }
+
 }

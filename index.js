@@ -1,16 +1,16 @@
-
+//API variables
 
 const port = 'http://localhost:3000/api/v1'
 const monsterApi = new MonsterApi(port)
 const userApi = new UserApi(port)
 
+// DOM Selectors
 
 const form = document.querySelector(".add-user-form")
 const nameInput = document.getElementById('user-name')
 const titleInput = document.getElementById('user-title')
 const imageInput = document.getElementById('user-image')
 const logoutButton = document.querySelector("#logout-button")
-//const allMonstersButton = document.querySelector("#all-monsters-button")
 const showHomePage = true;
 
 form.addEventListener('submit', handleSubmit)
@@ -22,26 +22,23 @@ function handleSubmit(e){
     toggleLandingView()
 }
 
-
+//function calls left here for working visibility
 userApi.getUsers()
-// monsterApi.getUsersMonsters()
-monsterApi.getMonsters()
+//monsterApi.getMonsters()
 
-
-
-
-//DOM toggle 
-
-// allMonstersButton.addEventListener('click', e =>{
-//     e.preventDefault()
-//     monsterApi.getMonsters()
-// })
+//DOM toggle functions
 
 logoutButton.addEventListener('click', e => {
     e.preventDefault()
     toggleLandingView(true)
-    let monsterContainer = document.getElementById("monster-card-container") 
-    let userContainer = document.getElementById("user-card-container") 
+    
+    
+    const agentContainer = document.getElementById("select-agent-container")
+    const userCard = document.getElementById("user-card-container")
+    document.getElementById("monster-folder").innerHTML = ""
+
+    //agentContainer.append(userCard)
+    //userCard.innerHTML = "";
 })
 
 function toggleLandingView(showHomePage) {
@@ -49,5 +46,3 @@ function toggleLandingView(showHomePage) {
     document.getElementById("monster-card-container").hidden = showHomePage;
     document.getElementById("user-card-container").hidden = showHomePage;
 }
-
-

@@ -1,6 +1,7 @@
 class User{
 
     static all = []
+
     static userContainer = document.querySelector('#user-card-container')
     static agentContainer = document.querySelector("#select-agent-container")
 
@@ -11,7 +12,6 @@ class User{
         this.image_url = image_url
 
         this.element = document.createElement('card')
-        //this.element.setAttribute('class', 'card')
         this.element.dataset["id"]= id
         this.element.id = `user-${id}`
 
@@ -48,7 +48,6 @@ class User{
         User.userContainer.append(this.element)
     }
 
-    
     attachAgentToDom(){
         this.render()
         this.element.addEventListener('click', this.handleAgentSelect)
@@ -56,10 +55,16 @@ class User{
     }
 
     handleAgentSelect(){
-        let userId = this.dataset.id
-        monsterApi.getUsersMonsters(userId)
+        let id = this.dataset.id
+        monsterApi.getUsersMonsters(id)
         toggleLandingView()
-        User.userContainer.append(this)
+
+        let currentUser = this.cloneNode()
+
+        User.userContainer.append(currentUser)
+
+
+
     }
 
 }
