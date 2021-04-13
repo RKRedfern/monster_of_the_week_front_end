@@ -14,8 +14,10 @@ class Monster{
         this.user_id = user_id
         this.category_id = category_id
         this.element = document.createElement('card')
-
+        
         Monster.all.push(this)
+
+        
     }
 
     render(){
@@ -26,7 +28,7 @@ class Monster{
         
         const id = document.createElement('div')
         id.setAttribute('id', 'id')
-        id.innerText = this.id
+        id.innerText = `id : ${this.id}`
         
         const name = document.createElement('div')
         name.setAttribute('id', 'name')
@@ -34,32 +36,34 @@ class Monster{
         
         const desc = document.createElement('div')
         desc.setAttribute('id', 'desc')
-        desc.innerHTML = this.description
+        desc.innerText = this.description
 
-        // const mImage = document.createElement('img')
-        // mImage.setAttribute('id', 'img')
-        // mImage.setAttribute('class', 'img')
-        // mImage.src = this.image_url
+        const img = document.createElement('img')
+        img.setAttribute('id', 'img')
+        img.setAttribute('class', 'img')
+        img.src = this.image_url
 
         const rarity = document.createElement('div')
         rarity.setAttribute('id', 'rarity')
-        rarity.innerText = this.rarity
+        rarity.innerText = `rarity : ${this.rarity}`
 
         const cat = document.createElement('div')
         cat.setAttribute('id', 'cat')
         cat.innerText = this.category_name
 
-        const favBtn = document.createElement('input')
-        favBtn.setAttribute('id', 'fav-btn')
-        favBtn.type = 'button'
-        favBtn.id = this.id
-        favBtn.checked = this.fav
-        favBtn.addEventListener('click', this.favorite)
+        const checkbox = document.createElement('input')
+        checkbox.setAttribute('id', 'checkbox')
+        checkbox.type = 'checkbox'
+        checkbox.id = this.id
+        checkbox.checked = this.fav
 
-        monsterCard.append(name, id, desc, cat, rarity)
+        monsterCard.append(checkbox)
+        monsterCard.append(name, id, img, desc, cat, rarity)
         
-        Monster.container.append(monsterCard)
-        
+
+        Monster.container.append(this.element)
+
+        checkbox.addEventListener('change', this.favorite)
     }
 
     attachMonsterToDom(){
@@ -81,7 +85,7 @@ class Monster{
         e.preventDefault()
         const id = e.target.id
         const liked = e.target.checked
-        this.toggle(e)
+        //this.toggle(e)
         monsterApi.favoritePatch(id, liked)
         //toggle called here when finished
     }

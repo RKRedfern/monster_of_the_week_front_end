@@ -11,17 +11,17 @@
 
     <div class="grid-container">
 
-        <div class="header">
-
+        <div id="user-header" class="header" hidden>
+            <button id="logout-button" class="submit" type="submit">Log Out</button>
         </div>
 
-        <div id="create-user-container" class="left" >
+        <div id="create-user-container" class="left">
             <h2> Welcome to the FBI's most Unwanted, enter your details to get issued a Badge </h2>
             <div id="create-user-form" >
                 <form class="add-user-form" style="">
                 
 
-                <input type="text" name="name" value="" placeholder="Enter your name" id="user-name">
+                <input type="text" name="name" value="" placeholder="Enter your name" id="new-user-name">
                 <br>
                 
                 <input type="text" name="title" value="" placeholder="What is your title?" id="user-title">
@@ -52,14 +52,12 @@
 
         </div>
 
-        <div id="user-card-container" class="left" hidden> 
+        <div id="user-card-container" class="left" > 
 
-        <button id="logout-button" class="submit" type="submit">Log Out</button>
-        
         </div>
 
-        <div class="footer">
-
+        <div id="user-footer" class="footer" hidden>
+            
         </div>
 
     </div>

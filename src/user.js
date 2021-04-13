@@ -40,7 +40,7 @@ class User{
         img.setAttribute('class', 'img')
         img.src = this.image_url
 
-        userCard.append(id, img, name)
+        userCard.append(img, name)
     }
 
     attachUserToDom(){
@@ -58,13 +58,8 @@ class User{
         let id = this.dataset.id
         monsterApi.getUsersMonsters(id)
         toggleLandingView()
-
-        let currentUser = this.cloneNode()
-
+        let currentUser = this.cloneNode(true)
         User.userContainer.append(currentUser)
-
-
-
     }
 
 }
