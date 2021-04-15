@@ -1,7 +1,19 @@
 body {
     text-align: center;
     font-family: "Courier New", monospace;
-    background-image: url('https://i.imgur.com/0rMzDFW.jpg');
+    color: black;
+    background-image: url('https://i.imgur.com/Ysok5QY.jpg');
+    background-repeat: no-repeat;
+    background-size: 2000px;
+}
+
+.dark-mode {
+    background-image: url('https://i.imgur.com/0rMzDFW.jpg') ;
+    background-position: top;
+    font-family: "Courier New", monospace;
+    color: rgb(255, 255, 255);
+    background-repeat: no-repeat;
+    background-size: 2500px;
 }
 
 .grid-container {
@@ -13,21 +25,26 @@ body {
     grid-column-gap: 20px;
 } 
 
+.header {
+    grid-area: header;
+    margin: 50px 0px 0px 0px
+    text-align: center;
+}
+
 .left,
 .middle,
 .right {
     padding: 10px;
 }
 
+
 .left {
     grid-area: left;
 }
 
-
 .middle {
     grid-area: middle;
 }
-
 
 .right {
     grid-area: right;
@@ -35,9 +52,20 @@ body {
 
 .footer {
     grid-area: footer;
-    background-color: #f1f1f1;
     padding: 10px;
     text-align: center;
+}
+
+input[type=text]{
+    font-family: "Courier New", monospace;
+    font-weight: bold;
+    text-align: center;
+    margin: 2px;
+    padding: 0px 0px 10px 10px;
+    width: 30%;
+    border-radius: 4px;
+    color: black;
+    background-color: rgb(189, 189, 189);
 }
 
 /* monster trading cards */
@@ -62,11 +90,7 @@ body {
     top: 45%;
 }
 
-.button {
-    margin: 24px 0px 0px -110px;
-    position: absolute;
-    z-index: 1;
-}
+
 
 #name {
     position: absolute;
@@ -299,4 +323,42 @@ body {
     66% {
     transform: rotateZ(3deg) rotateX(7deg) rotateY(-6deg);
     }
+}
+
+/* Buttons */   
+
+.button {
+    border-radius: 6px;
+    font-family: "Courier New", monospace;
+    font-size: medium;
+    padding: 4px 4px 4px 4px;
+    color: #ffffff;
+    box-shadow: 0 0 6px 0 rgba(136, 0, 255, 0.5);
+    border: solid 3px transparent;
+    background-image: linear-gradient(rgba(255, 255, 255, 0), rgba(255, 255, 255, 0)), linear-gradient(101deg, #00ff0d, #000000, #41fe28);
+    box-shadow: 2px 1000px 1px rgb(0, 0, 0) inset;
+    cursor: crosshair;
+}
+
+.fav-button {
+    border-radius: 4px;
+    margin: 25px 0px 0px -110px;
+    padding: 0px 15px 0px 10px;
+    position: absolute;
+    z-index: 1;
+    background-color:rgb(0, 0, 0)
+}
+
+.fav-button:hover{
+    box-shadow: 0 0 6px 0 rgba(136, 0, 255, 0.5);
+    background-color: rgb(83, 0, 121);
+}
+
+.favorite{
+    border-radius: 4px;
+    margin: 25px 0px 0px -110px;
+    position: absolute;
+    z-index: 1;
+    box-shadow: 0 0 6px 0 rgb(187, 255, 181);
+    background-image: url('https://i.imgur.com/FebONfq.jpg')
 }

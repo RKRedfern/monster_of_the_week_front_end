@@ -50,8 +50,8 @@ class Monster{
         cat.innerText = this.category_name
 
         const button = document.createElement('input')
-        button.className = "button"
-        button.setAttribute('id', 'button')
+        button.className = "fav-button"
+        button.setAttribute('id', 'fav-button')
         button.type = 'button'
         button.id = this.id
         button.clicked = this.fav
@@ -60,32 +60,26 @@ class Monster{
         monsterCard.append(button, id, name, img, desc, cat, rarity)
 
         Monster.container.append(this.element)
-
-        //monsterCard.addEventListener('click', this.favorite)
     }
 
     attachMonsterToDom = () => {
         this.render()
     }
 
-    // someday create a function to change what the card looks like on click?
-
-    toggle = (e) => {
-        console.log(e.target.checked)
-        if (e.target.checked === true){ 
-            console.log("Yes")
-        } else {
-            console.log("No")
-        }
-    }
-
     favorite = (e) => {
         e.preventDefault()
         const id = e.target.id
-        const liked = e.target.checked
-        console.log(id)
+        const liked = e.target.clicked
         monsterApi.favoritePatch(id, liked)
+        this.changeButton(e)
     }
 
+    // someday call a function to change the appearance of the button/checkbox
+    // is this possible to just do with CSS?
+
+    changeButton(e) {
+        const favBtn = e.target
+        favBtn.classList.toggle("favorite")
+    }
 
 }

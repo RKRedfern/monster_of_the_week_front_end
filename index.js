@@ -22,9 +22,7 @@ function handleSubmit(e){
     toggleLandingView()
 }
 
-//function calls left here for working visibility
 userApi.getUsers()
-//monsterApi.getMonsters()
 
 //DOM toggle functions
 
@@ -40,4 +38,13 @@ function toggleLandingView(showHomePage) {
     document.getElementById("monster-card-container").hidden = showHomePage;
     document.getElementById("user-card-container").hidden = showHomePage;
     document.getElementById("user-header").hidden = showHomePage;
+    document.getElementById("user-footer").hidden = !showHomePage;
+}
+
+let darkModeButton = document.getElementById('dark-mode-button')
+darkModeButton.addEventListener("click", toggleView);
+
+function toggleView(e) {
+    let backgroundBody = document.body
+    backgroundBody.classList.toggle("dark-mode");
 }

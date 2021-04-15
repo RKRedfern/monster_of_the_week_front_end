@@ -9,7 +9,7 @@ class UserApi{
         .then(r => r.json())
         .then(json => {
             json['data'].forEach(element => {
-                if (element.id < 5) {
+                if (element.id <= 3) {
                     const agentArray = new User({id: element.id, ...element.attributes})
                     agentArray.attachAgentToDom()
                 } else {
@@ -45,11 +45,7 @@ class UserApi{
                 const newUser = new User({id: json.data.id, ...json.data.attributes})
                 let userId = newUser.id
                 newUser.attachUserToDom()
-                monsterApi.getNewMonsterHand()
-                //monsterApi.getUsersMonsters(userId)
+                monsterApi.getUsersMonsters(userId)
             }
         )}
 }
-
-// when I create a new user, pull three random monsters from the database 
-// patch those monsters to the usersMonsters - duplicates OK 
