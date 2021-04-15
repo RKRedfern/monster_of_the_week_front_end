@@ -45,7 +45,7 @@ body {
 .monster-card {
     width: 280px;
     height: 410px;
-    background-image: url(https://i.imgur.com/d9saRAE.png);
+    background-image: url('https://i.imgur.com/d9saRAE.png');
     background-size: 280px;
     background-repeat: no-repeat;
     background-position: center;
@@ -60,6 +60,103 @@ body {
 .monster-card > span {
     position: relative;
     top: 45%;
+}
+
+.button {
+    margin: 24px 0px 0px -110px;
+    position: absolute;
+    z-index: 1;
+}
+
+#name {
+    position: absolute;
+    margin: 21px 0px 0px 8px;
+    padding: 6px 0px 60px 50px;
+    width: 170px;
+    font-size: small;
+    font-weight: bold;
+    /* text-align: center; */
+    /* vertical-align: middle; */
+}
+
+#id {
+    position: absolute;
+    margin: 58px 50px 20px 180px;
+    font-weight: bold;
+    font-size: small;
+}
+
+#img {
+    width: 170px;
+    height: auto;
+    position: absolute;
+    margin: 85px 0px 0px -86px;
+    border-radius: 15px
+    
+}
+
+#desc {
+    position: absolute;
+    margin: 308px 0px 0px 25px;
+    text-align: center;
+    font-size: small;
+    font-weight: bold;
+    width: 232px;
+    height: 74px;
+    background:rgb(227, 255, 195);
+    border-radius: 4px;
+}
+
+#rarity {
+    position: absolute;
+    margin: 60px 0px 100px 50px;
+    font-weight: bold;
+    font-size: x-small;
+}
+
+#cat {
+    font-size: small;
+    font-weight: bold;
+    margin: 273px 0px 0px 40px;
+    position: absolute;
+    width: auto;
+    height: auto;
+    background:rgb(243, 250, 234)
+    
+}
+
+
+/*  user id card  */
+
+.user-card {
+    width: 446px;
+    height: 245px;
+    background-color: #ffffff;
+    background-image: url('https://i.imgur.com/UdyNzok.jpg');
+    background-size: 446px;
+    background-repeat: no-repeat;
+    background-position: center;
+    border-radius: 15px;
+    border: rgb(231, 231, 231) solid 5px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    position: relative;
+    overflow: hidden;
+    display: inline-block;
+    /* vertical-align: middle; */
+    margin: 10px 10px;
+    /* animation: holoCard 15s ease infinite; */
+}
+
+#user-avatar {
+    width: 110px;
+    position: absolute;
+    margin: 47px 0px 0px 93px;
+}
+
+#user-name {
+    position: absolute;
+    margin: 190px 0px 0px 250px;
+    font-weight: bold;
 }
 
 .monster-card:before,
@@ -82,7 +179,7 @@ body {
     background-size: 300% 300%;
     mix-blend-mode: color-dodge;
     opacity: 0.2;
-    z-index: 1;
+    /* z-index: ; */
     animation: holoGradient 15s ease infinite;
 }
 .monster-card:after {
@@ -91,11 +188,11 @@ body {
     background-size: 180%;
     mix-blend-mode: color-dodge;
     opacity: 1;
-    z-index: 2;
+    /* z-index: 2; */
     animation: holoSparkle 15s ease infinite;
 }
 
-.monster-card.active:before {
+/* .monster-card.active:before {
     opacity: 1;
     animation: none;
     transition: none;
@@ -108,9 +205,9 @@ body {
         transparent 70%,
         transparent 100%
     );
-}
+} */
 
-.monster-card.active:before,
+/* .monster-card.active:before,
 .monster-card.active:after {
     animation: none;  
 }
@@ -151,7 +248,7 @@ body {
     display: inline-block;
     vertical-align: middle;
     font-size: 45px;
-}
+} */
 
 @keyframes holoSparkle {
     0%, 5% {
@@ -203,100 +300,3 @@ body {
     transform: rotateZ(3deg) rotateX(7deg) rotateY(-6deg);
     }
 }
-
-
-#favBtn {
-
-}
-
-#name {
-    position: absolute;
-    margin: 0px 0px 0px 10px;
-    padding: 6px 0px 60px 50px;
-    width: 170px;
-    font-size: small;
-    font-weight: bold;
-    /* text-align: center; */
-    /* vertical-align: middle; */
-}
-
-#id {
-    position: absolute;
-    margin: 36px 50px 20px 180px;
-    font-weight: bold;
-    font-size: small;
-}
-
-#img {
-    width: 170px;
-    height: auto;
-    position: absolute;
-    margin: 85px 0px 0px -96px;
-    border-radius: 15px
-    
-}
-
-#desc {
-    position: absolute;
-    margin: 287px 0px 0px 25px;
-    text-align: center;
-    font-size: small;
-    font-weight: bold;
-    width: 232px;
-    height: 74px;
-    background:rgb(227, 255, 195);
-    border-radius: 4px;
-}
-
-#rarity {
-    position: absolute;
-    margin: 38px 0px 100px 50px;
-    font-weight: bold;
-    font-size: x-small;
-}
-
-#cat {
-    font-size: small;
-    font-weight: bold;
-    margin: 250px 0px 0px 40px;
-    position: absolute;
-    width: auto;
-    height: auto;
-    background:rgb(243, 250, 234)
-    
-}
-
-
-/*  user id card  */
-
-.user-card {
-    width: 446px;
-    height: 245px;
-    background-color: #ffffff;
-    background-image: url('https://i.imgur.com/UdyNzok.jpg');
-    background-size: 446px;
-    background-repeat: no-repeat;
-    background-position: center;
-    border-radius: 15px;
-    border: rgb(231, 231, 231) solid 5px;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-    position: relative;
-    overflow: hidden;
-    display: inline-block;
-    /* vertical-align: middle; */
-    margin: 10px 10px;
-    /* animation: holoCard 15s ease infinite; */
-}
-
-#user-avatar {
-    width: 110px;
-    position: absolute;
-    margin: 47px 0px 0px 93px;
-}
-
-#user-name {
-    position: absolute;
-    margin: 190px 0px 0px 250px;
-    font-weight: bold;
-}
-

@@ -16,16 +16,14 @@ class Monster{
         this.element = document.createElement('card')
         
         Monster.all.push(this)
-
-        
     }
 
     render(){
 
         const monsterCard = this.element
         monsterCard.className = "monster-card"
-        monsterCard.setAttribute('class', 'monster-card')
-        
+        monsterCard.id = this.id
+
         const id = document.createElement('div')
         id.setAttribute('id', 'id')
         id.innerText = `id : ${this.id}`
@@ -51,26 +49,26 @@ class Monster{
         cat.setAttribute('id', 'cat')
         cat.innerText = this.category_name
 
-        const checkbox = document.createElement('input')
-        checkbox.setAttribute('id', 'checkbox')
-        checkbox.type = 'checkbox'
-        checkbox.id = this.id
-        checkbox.checked = this.fav
+        const button = document.createElement('input')
+        button.className = "button"
+        button.setAttribute('id', 'button')
+        button.type = 'button'
+        button.id = this.id
+        button.clicked = this.fav
+        button.addEventListener('click', this.favorite)
 
-        monsterCard.append(checkbox)
-        monsterCard.append(name, id, img, desc, cat, rarity)
-        
+        monsterCard.append(button, id, name, img, desc, cat, rarity)
 
         Monster.container.append(this.element)
 
-        checkbox.addEventListener('change', this.favorite)
+        //monsterCard.addEventListener('click', this.favorite)
     }
 
-    attachMonsterToDom(){
+    attachMonsterToDom = () => {
         this.render()
     }
 
-    // someday create a function to change what the button looks like on click?
+    // someday create a function to change what the card looks like on click?
 
     toggle = (e) => {
         console.log(e.target.checked)
@@ -85,15 +83,9 @@ class Monster{
         e.preventDefault()
         const id = e.target.id
         const liked = e.target.checked
-        //this.toggle(e)
+        console.log(id)
         monsterApi.favoritePatch(id, liked)
-        //toggle called here when finished
     }
 
-    // I just want them to sparkle 
-
-    monsterCardSparkle(monsterArray){
-        console.log(monsterArray)
-    }
 
 }

@@ -45,7 +45,11 @@ class UserApi{
                 const newUser = new User({id: json.data.id, ...json.data.attributes})
                 let userId = newUser.id
                 newUser.attachUserToDom()
-                monsterApi.getUsersMonsters(userId)
+                monsterApi.getNewMonsterHand()
+                //monsterApi.getUsersMonsters(userId)
             }
         )}
 }
+
+// when I create a new user, pull three random monsters from the database 
+// patch those monsters to the usersMonsters - duplicates OK 
